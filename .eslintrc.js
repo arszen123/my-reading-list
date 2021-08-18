@@ -37,8 +37,10 @@ module.exports = {
   rules: {
     'no-use-before-define': 0,
     'no-shadow': 'off',
+    'react/prop-types': 0,
     '@typescript-eslint/no-shadow': ['error'],
     'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
+    'import/no-extraneous-dependencies': 0,
     'import/extensions': [
       'error',
       'ignorePackages',
