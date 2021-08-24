@@ -1,11 +1,7 @@
 import React from 'react';
 import { IconButton } from '@chakra-ui/button';
 import { useColorMode } from '@chakra-ui/color-mode';
-import Icon from '@chakra-ui/icon';
-import {
-  MdBrightness5 as IconSun,
-  MdBrightness4 as IconMoon,
-} from 'react-icons/md';
+import { IconMoon, IconSun } from '../Icons';
 
 const ColorModeToggle: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -16,7 +12,7 @@ const ColorModeToggle: React.FC = () => {
     <IconButton
       onClick={toggleColorMode}
       aria-label={`Toggle ${toggleText}`}
-      icon={<Icon as={isDark ? IconSun : IconMoon} />}
+      icon={isDark ? <IconSun /> : <IconMoon />}
     />
   );
 };

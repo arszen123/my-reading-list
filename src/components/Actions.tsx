@@ -9,14 +9,13 @@ import {
   MenuList,
   MenuOptionGroup,
 } from '@chakra-ui/menu';
-import { MdExpandMore as IconExpandMore } from 'react-icons/md';
-import Icon from '@chakra-ui/icon';
+import { IconExpandMore } from './Icons';
 
 const Actions: React.FC = () => {
   const isSaved = false;
   return (
     <Menu closeOnSelect={false}>
-      <MenuButton as={Button} rightIcon={<Icon as={IconExpandMore} />}>
+      <MenuButton as={Button} rightIcon={<IconExpandMore />}>
         Actions
       </MenuButton>
       <MenuList>

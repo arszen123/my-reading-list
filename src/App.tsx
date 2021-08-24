@@ -1,19 +1,32 @@
+import { Box } from '@chakra-ui/layout';
 import React from 'react';
-import Card from './components/Card';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
+import ListPage from './pages/ListPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 const App: React.FC = () => (
-  <>
+  <Router>
     <Navbar />
-    <div style={{
-      padding: '10px',
-      margin: 'auto',
-      maxWidth: 'fit-content',
-    }}
+    <Box
+      p="20px"
+      m="auto"
+      maxW="fit-content"
     >
-      <Card />
-    </div>
-  </>
+      <Switch>
+        <Route path="/" exact>
+          <ListPage />
+        </Route>
+        <Route>
+          <NotFoundPage />
+        </Route>
+      </Switch>
+    </Box>
+  </Router>
 );
 
 export default App;

@@ -1,10 +1,6 @@
-import Icon from '@chakra-ui/icon';
-import { Box } from '@chakra-ui/layout';
 import React from 'react';
-import {
-  MdStar as IconStar,
-  MdStarHalf as IconStarHalf,
-} from 'react-icons/md';
+import { Box } from '@chakra-ui/layout';
+import { IconStar, IconStarEmpty, IconStarHalf } from './Icons';
 
 type Props = {
   rating: number;
@@ -13,11 +9,14 @@ type Props = {
 
 const Rating: React.FC<Props> = ({ rating, numOfRating }) => {
   const list = new Array(5).fill(0).map((_, idx) => {
-    const color = idx < rating ? 'teal.500' : 'gray.300';
+    const color = 'teal.500';
     if (idx < rating && rating < idx + 1) {
-      return <Icon as={IconStarHalf} color={color} />;
+      return <IconStarHalf color={color} />;
     }
-    return <Icon as={IconStar} color={color} />;
+    if (idx >= rating) {
+      return <IconStarEmpty color={color} />;
+    }
+    return <IconStar color={color} />;
   });
 
   return (
