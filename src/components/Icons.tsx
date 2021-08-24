@@ -1,7 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
-import { Icon, IconProps } from '@chakra-ui/react';
+import {
+  Icon as ChakraIcon,
+  IconProps as ChakraIconProps,
+} from '@chakra-ui/react';
 import {
   MdArrowBack,
   MdStar,
@@ -11,31 +14,20 @@ import {
   MdBrightness4,
   MdExpandMore,
 } from 'react-icons/md';
+import { IconType } from 'react-icons';
 
-export const IconArrowBack: React.FC<IconProps> = (props) => (
-  <Icon {...props} as={MdArrowBack} />
-);
+type IconProps = Omit<ChakraIconProps, 'as'>;
 
-export const IconStar: React.FC<IconProps> = (props) => (
-  <Icon {...props} as={MdStar} />
-);
+function Icon(icon: IconType): React.FC<IconProps> {
+  return (props: IconProps) => (
+    <ChakraIcon {...props} as={icon} />
+  );
+}
 
-export const IconStarHalf: React.FC<IconProps> = (props) => (
-  <Icon {...props} as={MdStarHalf} />
-);
-
-export const IconStarEmpty: React.FC<IconProps> = (props) => (
-  <Icon {...props} as={MdStarBorder} />
-);
-
-export const IconSun: React.FC<IconProps> = (props) => (
-  <Icon {...props} as={MdBrightness5} />
-);
-
-export const IconMoon: React.FC<IconProps> = (props) => (
-  <Icon {...props} as={MdBrightness4} />
-);
-
-export const IconExpandMore: React.FC<IconProps> = (props) => (
-  <Icon {...props} as={MdExpandMore} />
-);
+export const IconArrowBack = Icon(MdArrowBack);
+export const IconStar = Icon(MdStar);
+export const IconStarHalf = Icon(MdStarHalf);
+export const IconStarEmpty = Icon(MdStarBorder);
+export const IconSun = Icon(MdBrightness5);
+export const IconMoon = Icon(MdBrightness4);
+export const IconExpandMore = Icon(MdExpandMore);
