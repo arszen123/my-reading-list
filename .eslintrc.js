@@ -35,6 +35,7 @@ module.exports = {
     },
   },
   rules: {
+    'import/prefer-default-export': 0,
     'no-use-before-define': 0,
     'no-shadow': 'off',
     'react/prop-types': 0,
@@ -49,6 +50,6 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'max-len': ['error', { 'code': 80 }]
+    'max-len': ['error', { code: 80 }],
   },
 };

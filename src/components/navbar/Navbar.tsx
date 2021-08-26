@@ -14,9 +14,14 @@ const Navbar: React.FC = () => {
       textAlign="center"
       boxShadow="lg"
       p={5}
+      pb={2}
       borderBottomWidth="1px"
     >
-      <Stack spacing="8" direction={['column', 'row']}>
+      <Stack
+        spacing={[2, null, 8]}
+        direction={['column', 'row']}
+        justifyContent="flex-end"
+      >
         <Searchbox onSubmit={handleSubmit} />
         <Stack direction={['column', 'row']}>
           <ColorModeToggle />

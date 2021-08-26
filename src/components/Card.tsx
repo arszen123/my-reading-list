@@ -9,6 +9,7 @@ import MOCK_DATA from '../mock.json';
 import Rating from './Rating';
 import Actions from './Actions';
 import { Book } from '../types';
+import { getTitle, getSearchDescription } from '../shared/book';
 
 const Card: React.FC = () => {
   const book: Book = MOCK_DATA;
@@ -70,22 +71,5 @@ const Card: React.FC = () => {
     </Box>
   );
 };
-
-function getSearchDescription(book: Book) {
-  let res = book.searchInfo?.textSnippet;
-  if (!res) {
-    res = book.volumeInfo.description;
-  }
-  return res;
-}
-
-function getTitle(book: Book) {
-  let { title } = book.volumeInfo;
-  const { subtitle } = book.volumeInfo;
-  if (subtitle) {
-    title += `: ${subtitle}`;
-  }
-  return title;
-}
 
 export default Card;
