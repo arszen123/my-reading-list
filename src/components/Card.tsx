@@ -5,14 +5,17 @@ import {
   Box,
   Stack,
 } from '@chakra-ui/layout';
-import MOCK_DATA from '../mock.json';
+import { Link } from 'react-router-dom';
 import Rating from './Rating';
 import Actions from './Actions';
 import { Book } from '../types';
 import { getTitle, getSearchDescription } from '../shared/book';
 
-const Card: React.FC = () => {
-  const book: Book = MOCK_DATA;
+type Props = {
+  book: Book;
+};
+
+const Card: React.FC<Props> = ({ book }) => {
   const searchInfo = getSearchDescription(book);
   const title = getTitle(book);
 
@@ -23,6 +26,7 @@ const Card: React.FC = () => {
       borderRadius="lg"
       overflow="hidden"
       p="5"
+      shadow="lg"
     >
       <Stack direction={['column', 'row']}>
         <AspectRatio
@@ -31,22 +35,26 @@ const Card: React.FC = () => {
           ratio={1 / 1.6}
           m="auto"
         >
-          <Image
-            w="100%"
-            objectFit="cover"
-            src={book.volumeInfo.imageLinks.thumbnail}
-            alt={title}
-          />
+          <Link to={`/books/${book.id}`}>
+            <Image
+              w="100%"
+              objectFit="cover"
+              src={book.volumeInfo.imageLinks.thumbnail}
+              alt={title}
+            />
+          </Link>
         </AspectRatio>
         <Box pl="4">
-          <Box
-            mt="1"
-            fontWeight="semibold"
-            as="h4"
-            lineHeight="tight"
-          >
-            {title}
-          </Box>
+          <Link to={`/books/${book.id}`}>
+            <Box
+              mt="1"
+              fontWeight="semibold"
+              as="h4"
+              lineHeight="tight"
+            >
+              {title}
+            </Box>
+          </Link>
           <Box
             mt="1"
             as="h4"

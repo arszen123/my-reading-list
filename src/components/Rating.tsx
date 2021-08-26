@@ -7,7 +7,9 @@ type Props = {
   numOfRating: number;
 };
 
-const Rating: React.FC<Props> = ({ rating, numOfRating }) => {
+const Rating: React.FC<Props> = ({ rating = 0, numOfRating = 0 }) => {
+  const text = numOfRating === 0 ? 'No ratings available'
+    : `${numOfRating} Ratings`;
   const list = new Array(5).fill(0).map((_, idx) => {
     const color = 'teal.500';
     if (idx < rating && rating < idx + 1) {
@@ -25,9 +27,7 @@ const Rating: React.FC<Props> = ({ rating, numOfRating }) => {
         {list}
       </Box>
       <Box ml="2" fontSize="smaller" color="gray.600">
-        {numOfRating}
-        {' '}
-        Ratings
+        {text}
       </Box>
     </>
   );

@@ -3,17 +3,32 @@ import {
   AspectRatio, Box, Stack, Text,
 } from '@chakra-ui/layout';
 import React from 'react';
+import { useParams } from 'react-router';
 import Actions from '../components/Actions';
 import Rating from '../components/Rating';
 import SimpleDataTable from '../components/SimpleDataTable';
-import MOCK_DATA from '../mock.json';
-import { getTitle, getDetails } from '../shared/book';
+import { useBook } from '../hooks/books';
+import { getTitle, getDetails, getSearchDescription } from '../shared/book';
 import { Book } from '../types';
 
+type PathParams = {
+  id: string;
+};
+
 const BookDetailsPage: React.FC = () => {
-  const book: Book = MOCK_DATA;
+  const { id } = useParams<PathParams>();
+  const bookResponse = useBook(id);
+  if (bookResponse.isLoading || bookResponse.error) {
+    return (
+      <Box>
+        Loading...
+      </Box>
+    );
+  }
+  const book: Book = bookResponse.data;
   const title = getTitle(book);
   const details = getDetails(book);
+  const description = book.volumeInfo.description ?? getSearchDescription(book);
 
   return (
     <Stack direction={['column', 'row']} spacing="32px">
@@ -41,7 +56,7 @@ const BookDetailsPage: React.FC = () => {
       <Box>
         <Text as="h1" fontSize="2xl" fontWeight="bold">{title}</Text>
         <Box pt="2" pb="2">
-          {book.volumeInfo.description}
+          {description}
         </Box>
         <SimpleDataTable rows={details} />
       </Box>

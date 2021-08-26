@@ -1,13 +1,15 @@
 import React from 'react';
 import { Button } from '@chakra-ui/button';
 import { Box, Stack } from '@chakra-ui/layout';
+import { useHistory } from 'react-router';
 import Searchbox from './Searchbox';
 import ColorModeToggle from './ColorModeToggle';
 
 const Navbar: React.FC = () => {
+  const history = useHistory();
   // eslint-disable-next-line
   function handleSubmit(text: string) {
-
+    history.push(`/search/${text}`);
   }
   return (
     <Box
