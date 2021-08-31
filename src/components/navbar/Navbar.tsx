@@ -1,16 +1,20 @@
 import React from 'react';
-import { Button } from '@chakra-ui/button';
 import { Box, Stack } from '@chakra-ui/layout';
 import { useHistory } from 'react-router';
 import Searchbox from './Searchbox';
 import ColorModeToggle from './ColorModeToggle';
+import { LoginButton } from './LoginButton';
+import { useUser } from '../../hooks/auth';
+import { ProfileMenu } from './ProfileMenu';
 
 const Navbar: React.FC = () => {
   const history = useHistory();
-  // eslint-disable-next-line
+  const user = useUser();
+
   function handleSubmit(text: string) {
     history.push(`/search/${text}`);
   }
+
   return (
     <Box
       textAlign="center"
@@ -27,9 +31,7 @@ const Navbar: React.FC = () => {
         <Searchbox onSubmit={handleSubmit} />
         <Stack direction={['column', 'row']}>
           <ColorModeToggle />
-          <Button colorScheme="teal">
-            Login
-          </Button>
+          {user === null ? <LoginButton /> : <ProfileMenu />}
         </Stack>
       </Stack>
     </Box>

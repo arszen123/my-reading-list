@@ -26,7 +26,7 @@ export type VolumeInfo = {
   allowAnonLogging: boolean;
   contentVersion: string;
   panelizationSummary: PanelizationSummary;
-  imageLinks: ImageLinks;
+  imageLinks?: ImageLinks;
   language: string;
   previewLink: string;
   infoLink: string;

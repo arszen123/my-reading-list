@@ -41,6 +41,7 @@ module.exports = {
     'react/prop-types': 0,
     '@typescript-eslint/no-shadow': ['error'],
     'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
+    'react/jsx-props-no-spreading': 'off',
     'import/no-extraneous-dependencies': 0,
     'import/extensions': [
       'error',

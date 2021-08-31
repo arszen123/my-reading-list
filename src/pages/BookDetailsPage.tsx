@@ -10,6 +10,7 @@ import SimpleDataTable from '../components/SimpleDataTable';
 import { useBook } from '../hooks/books';
 import { getTitle, getDetails, getSearchDescription } from '../shared/book';
 import { Book } from '../types';
+import noBookCoverImage from '../assets/no_book_cover.jpg';
 
 type PathParams = {
   id: string;
@@ -41,7 +42,7 @@ const BookDetailsPage: React.FC = () => {
           ratio={1.1 / 1.6}
         >
           <Image
-            src={book.volumeInfo.imageLinks.thumbnail}
+            src={book.volumeInfo.imageLinks?.thumbnail ?? noBookCoverImage}
             alt={title}
           />
         </AspectRatio>
@@ -55,9 +56,7 @@ const BookDetailsPage: React.FC = () => {
       </Box>
       <Box>
         <Text as="h1" fontSize="2xl" fontWeight="bold">{title}</Text>
-        <Box pt="2" pb="2">
-          {description}
-        </Box>
+        <Box pt="2" pb="2" dangerouslySetInnerHTML={{ __html: description }} />
         <SimpleDataTable rows={details} />
       </Box>
     </Stack>

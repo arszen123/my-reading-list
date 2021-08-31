@@ -10,6 +10,7 @@ import Rating from './Rating';
 import Actions from './Actions';
 import { Book } from '../types';
 import { getTitle, getSearchDescription } from '../shared/book';
+import noBookCoverImage from '../assets/no_book_cover.jpg';
 
 type Props = {
   book: Book;
@@ -39,7 +40,7 @@ const Card: React.FC<Props> = ({ book }) => {
             <Image
               w="100%"
               objectFit="cover"
-              src={book.volumeInfo.imageLinks.thumbnail}
+              src={book.volumeInfo.imageLinks?.thumbnail ?? noBookCoverImage}
               alt={title}
             />
           </Link>

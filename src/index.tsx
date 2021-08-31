@@ -5,9 +5,12 @@ import {
   ChakraProvider,
   ColorModeScript,
 } from '@chakra-ui/react';
+import { initializeApp } from './firebase';
 import theme from './theme';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+initializeApp();
 
 ReactDOM.render(
   <React.StrictMode>

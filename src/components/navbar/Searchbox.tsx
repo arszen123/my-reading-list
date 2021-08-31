@@ -1,8 +1,8 @@
+import React, { useState } from 'react';
 import { Button } from '@chakra-ui/button';
 import { Image } from '@chakra-ui/image';
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/input';
 import { Box, Stack } from '@chakra-ui/layout';
-import React, { useState } from 'react';
 import logo from '../../assets/poweredby_google.png';
 
 type Props = {

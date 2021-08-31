@@ -1,7 +1,7 @@
+import React from 'react';
 import {
   Table, Tbody, Td, Tr,
 } from '@chakra-ui/table';
-import React from 'react';
 
 type Props = {
   rows: {

@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable import/prefer-default-export */
 import React from 'react';
 import {
   Icon as ChakraIcon,
@@ -14,6 +12,9 @@ import {
   MdBrightness4,
   MdExpandMore,
 } from 'react-icons/md';
+import {
+  FaGoogle,
+} from 'react-icons/fa';
 import { IconType } from 'react-icons';
 
 type IconProps = Omit<ChakraIconProps, 'as'>;
@@ -31,3 +32,4 @@ export const IconStarEmpty = Icon(MdStarBorder);
 export const IconSun = Icon(MdBrightness5);
 export const IconMoon = Icon(MdBrightness4);
 export const IconExpandMore = Icon(MdExpandMore);
+export const IconGoogle = Icon(FaGoogle);
