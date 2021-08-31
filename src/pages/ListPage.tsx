@@ -16,8 +16,8 @@ type PathParams = {
 const ListPage: React.FC = () => {
   const history = useHistory();
   const { query, page: pageFromPath = '1' } = useParams<PathParams>();
-  const page = parseInt(pageFromPath, 10);
-  const books = useBooks({ page, query });
+  const page = Math.max(parseInt(pageFromPath, 10), 1);
+  const books = useBooks({ query, startIndex: (page - 1) * 10 });
 
   function handleNavigation(direction: number) {
     let newPage = page + direction;

@@ -10,16 +10,16 @@ type Response<T> = {
 };
 
 export function useBooks(
-  { query, page }: {query: string, page: number},
+  { query, startIndex }: {query: string, startIndex: number},
 ): Response<Book[]> {
   const {
     data,
     error,
     isLoading,
   } = useQuery(
-    `books.${query}.${page}`,
+    `books.${query}.${startIndex}`,
     () => fetch(
-      `${BOOKS_BASE_URL}/books/v1/volumes?q=${query}&startIndex=${page}`,
+      `${BOOKS_BASE_URL}/books/v1/volumes?q=${query}&startIndex=${startIndex}`,
     ).then((res) => res.json())
       .then((res) => res.items),
   );
