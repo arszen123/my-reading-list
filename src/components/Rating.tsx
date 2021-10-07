@@ -22,14 +22,14 @@ const Rating: React.FC<Props> = ({ rating = 0, numOfRating = 0 }) => {
   });
 
   return (
-    <>
+    <Box textAlign="center">
       <Box>
         {list}
       </Box>
       <Box ml="2" fontSize="smaller" color="gray.600">
         {text}
       </Box>
-    </>
+    </Box>
   );
 };
 

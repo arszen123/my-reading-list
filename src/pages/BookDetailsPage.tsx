@@ -11,6 +11,8 @@ import { useBook } from '../hooks/books';
 import { getTitle, getDetails, getSearchDescription } from '../shared/book';
 import { Book } from '../types';
 import noBookCoverImage from '../assets/no_book_cover.jpg';
+import { useUserBooksService } from '../hooks/user-books';
+import { useUser } from '../hooks/auth';
 
 type PathParams = {
   id: string;
@@ -19,6 +21,8 @@ type PathParams = {
 const BookDetailsPage: React.FC = () => {
   const { id } = useParams<PathParams>();
   const bookResponse = useBook(id);
+  const user = useUser();
+  const bookService = useUserBooksService(user?.uid || '');
   if (bookResponse.isLoading || bookResponse.error) {
     return (
       <Box>
@@ -27,6 +31,7 @@ const BookDetailsPage: React.FC = () => {
     );
   }
   const book: Book = bookResponse.data;
+  const savedBook = bookService.findById(book.id);
   const title = getTitle(book);
   const details = getDetails(book);
   const description = book.volumeInfo.description ?? getSearchDescription(book);
@@ -51,7 +56,11 @@ const BookDetailsPage: React.FC = () => {
             numOfRating={book.volumeInfo.ratingsCount}
             rating={book.volumeInfo.averageRating}
           />
-          <Actions />
+          <Actions
+            onRemove={() => bookService.remove(book.id)}
+            onStateChange={(state) => bookService.updateState(book.id, state)}
+            state={savedBook?.state}
+          />
         </Box>
       </Box>
       <Box>
