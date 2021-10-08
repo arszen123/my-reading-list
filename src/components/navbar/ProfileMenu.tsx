@@ -14,7 +14,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 import { useUser } from '../../hooks/auth';
 import { DeleteAlertDialog } from './DeleteAlertDialog';
-import { IconExpandMore } from '../Icons';
+import { IconExpandMore } from '../../modules/shared/components/Icons';
 
 export const ProfileMenu: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

@@ -4,15 +4,19 @@ import {
 } from '@chakra-ui/layout';
 import React from 'react';
 import { useParams } from 'react-router';
-import Actions from '../components/Actions';
-import Rating from '../components/Rating';
-import SimpleDataTable from '../components/SimpleDataTable';
-import { useBook } from '../hooks/books';
-import { getTitle, getDetails, getSearchDescription } from '../shared/book';
-import { Book } from '../types';
-import noBookCoverImage from '../assets/no_book_cover.jpg';
-import { useUserBooksService } from '../hooks/user-books';
-import { useUser } from '../hooks/auth';
+import Actions from '../../shared/components/Actions';
+import Rating from '../../shared/components/Rating';
+import SimpleDataTable from '../../shared/components/SimpleDataTable';
+import { useBook } from '../../../hooks/books';
+import {
+  getTitle,
+  getDetails,
+  getSearchDescription,
+} from '../../../shared/book';
+import { Book } from '../../../types';
+import noBookCoverImage from '../../../assets/no_book_cover.jpg';
+import { useUserBooksService } from '../../../hooks/user-books';
+import { useUser } from '../../../hooks/auth';
 
 type PathParams = {
   id: string;

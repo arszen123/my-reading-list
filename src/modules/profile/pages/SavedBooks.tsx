@@ -3,15 +3,15 @@ import {
   Stack, SimpleGrid,
 } from '@chakra-ui/layout';
 import { Select } from '@chakra-ui/react';
-import { useUser } from '../../hooks/auth';
-import { useBook } from '../../hooks/books';
+import { useUser } from '../../../hooks/auth';
+import { useBook } from '../../../hooks/books';
 import {
   BookState,
   BOOK_STATES,
   useUserBooksService,
-} from '../../hooks/user-books';
-import Card from '../../components/Card';
-import CardSkeleton from '../../components/CardSkeleton';
+} from '../../../hooks/user-books';
+import Card from '../../shared/components/Card';
+import CardSkeleton from '../../shared/components/CardSkeleton';
 
 export const SavedBooks: React.FC = () => {
   const [

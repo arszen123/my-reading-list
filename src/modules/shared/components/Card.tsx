@@ -8,11 +8,11 @@ import {
 import { Link } from 'react-router-dom';
 import Rating from './Rating';
 import Actions from './Actions';
-import { Book } from '../types';
-import { getTitle, getSearchDescription } from '../shared/book';
-import noBookCoverImage from '../assets/no_book_cover.jpg';
-import { useUser } from '../hooks/auth';
-import { useUserBooksService } from '../hooks/user-books';
+import { Book } from '../../../types';
+import { getTitle, getSearchDescription } from '../../../shared/book';
+import noBookCoverImage from '../../../assets/no_book_cover.jpg';
+import { useUser } from '../../../hooks/auth';
+import { useUserBooksService } from '../../../hooks/user-books';
 
 type Props = {
   book: Book;

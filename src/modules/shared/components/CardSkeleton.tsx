@@ -1,5 +1,4 @@
 import React from 'react';
-import { Image } from '@chakra-ui/image';
 import {
   AspectRatio,
   Box,

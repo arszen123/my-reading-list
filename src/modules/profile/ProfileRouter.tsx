@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router';
-import { SavedBooks } from './SavedBooks';
+import { SavedBooks } from './pages/SavedBooks';
 
 export const ProfileRouter: React.FC = () => (
   <>

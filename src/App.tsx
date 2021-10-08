@@ -13,11 +13,10 @@ import {
 } from 'firebase/auth';
 import { useToast } from '@chakra-ui/toast';
 import Navbar from './components/navbar/Navbar';
-import BookDetailsPage from './pages/BookDetailsPage';
-import ListPage from './pages/ListPage';
 import NotFoundPage from './pages/NotFoundPage';
-import { ProfileRouter } from './pages/profile/ProfileRouter';
+import { ProfileRouter } from './modules/profile/ProfileRouter';
 import { LandingPage } from './pages/LandingPage';
+import { BooksRouter } from './modules/books/BooksRouter';
 
 const queryClient = new QueryClient();
 
@@ -40,15 +39,11 @@ const App: React.FC = () => {
           maxW="fit-content"
         >
           <Switch>
-            <Route path="/search/:query/:page?">
-              <ListPage />
-            </Route>
-            <Route path="/books/:id" exact>
-              <BookDetailsPage />
-            </Route>
             <Route path="/" exact>
               <LandingPage />
             </Route>
+            {/* TODO: Fix router. For some reason the last router wont work */}
+            <BooksRouter />
             <ProfileRouter />
             <Route>
               <NotFoundPage />

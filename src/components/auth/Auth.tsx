@@ -12,7 +12,7 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
 } from 'firebase/auth';
-import { IconGoogle } from '../Icons';
+import { IconGoogle } from '../../modules/shared/components/Icons';
 import { DividerWithText } from './DividerWithText';
 import { LoginForm } from './LoginForm';
 

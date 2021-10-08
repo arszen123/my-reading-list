@@ -4,9 +4,9 @@ import {
 } from '@chakra-ui/layout';
 import React from 'react';
 import { useHistory, useParams } from 'react-router';
-import Card from '../components/Card';
-import { useBooks } from '../hooks/books';
-import { Book } from '../types';
+import Card from '../../shared/components/Card';
+import { useBooks } from '../../../hooks/books';
+import { Book } from '../../../types';
 
 type PathParams = {
   query: string,
