@@ -10,6 +10,7 @@ import {
 
 export const DividerWithText: React.FC<FlexProps> = (props) => {
   const { children, ...flexProps } = props;
+
   return (
     <Flex align="center" color="gray.300" {...flexProps}>
       <Box flex="1">

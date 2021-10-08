@@ -11,12 +11,17 @@ import Actions from './Actions';
 import { Book } from '../types';
 import { getTitle, getSearchDescription } from '../shared/book';
 import noBookCoverImage from '../assets/no_book_cover.jpg';
+import { useUser } from '../hooks/auth';
+import { useUserBooksService } from '../hooks/user-books';
 
 type Props = {
   book: Book;
 };
 
 const Card: React.FC<Props> = ({ book }) => {
+  const user = useUser();
+  const bookService = useUserBooksService(user?.uid || '');
+  const savedBook = bookService.findById(book.id);
   const searchInfo = getSearchDescription(book);
   const title = getTitle(book);
 
@@ -57,7 +62,8 @@ const Card: React.FC<Props> = ({ book }) => {
             </Box>
           </Link>
           <Box
-            mt="1"
+            mt="4"
+            mb="4"
             as="h4"
             lineHeight="tight"
             fontSize="sm"
@@ -72,7 +78,13 @@ const Card: React.FC<Props> = ({ book }) => {
               />
             </Box>
             <Box flex="1" textAlign="center">
-              <Actions />
+              <Actions
+                onRemove={() => bookService.remove(book.id)}
+                onStateChange={
+                  (state) => bookService.updateState(book.id, state)
+                }
+                state={savedBook?.state}
+              />
             </Box>
           </Stack>
         </Box>

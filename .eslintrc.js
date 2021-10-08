@@ -36,6 +36,7 @@ module.exports = {
   },
   rules: {
     'import/prefer-default-export': 0,
+    'no-useless-constructor': 'off',
     'no-use-before-define': 0,
     'no-shadow': 'off',
     'react/prop-types': 0,
@@ -52,5 +53,6 @@ module.exports = {
       },
     ],
     'max-len': ['error', { code: 80 }],
+    'newline-before-return': 'error',
   },
 };

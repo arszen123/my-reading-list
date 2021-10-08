@@ -10,6 +10,7 @@ export function getSearchDescription(book: Book): string {
   if (!res) {
     res = book.volumeInfo.description;
   }
+
   return res;
 }
 
@@ -19,6 +20,7 @@ export function getTitle(book: Book): string {
   if (subtitle) {
     title += `: ${subtitle}`;
   }
+
   return title;
 }
 
@@ -53,5 +55,6 @@ export function getDetails(book: Book): DetailRow[] {
       value: identifiers.map(({ identifier }) => identifier).join(', '),
     });
   }
+
   return rows;
 }
