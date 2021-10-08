@@ -35,6 +35,7 @@ const ListPage: React.FC = () => {
     );
   }
   const list = books.data.map((book: Book) => <Card book={book} />);
+
   return (
     <>
       <SimpleGrid columns={[1, null, 2]} spacing={10}>

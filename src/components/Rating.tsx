@@ -18,6 +18,7 @@ const Rating: React.FC<Props> = ({ rating = 0, numOfRating = 0 }) => {
     if (idx >= rating) {
       return <IconStarEmpty color={color} />;
     }
+
     return <IconStar color={color} />;
   });
 

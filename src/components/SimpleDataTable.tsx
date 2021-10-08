@@ -16,6 +16,7 @@ const SimpleDataTable: React.FC<Props> = ({ rows }) => {
       <Td>{value}</Td>
     </Tr>
   ));
+
   return (
     <Table>
       <Tbody>

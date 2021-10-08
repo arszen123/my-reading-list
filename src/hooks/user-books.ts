@@ -47,6 +47,7 @@ export const useUserBooksService = (uid: string): UserBooksService => {
   return {
     updateState: (bookId: string, state: BookState) => {
       const bookDbRef = child(booksDbRef, bookId);
+
       return update(bookDbRef, {
         state,
         udatedAt: new Date(),
@@ -54,6 +55,7 @@ export const useUserBooksService = (uid: string): UserBooksService => {
     },
     remove: (bookId: string) => {
       const bookDbRef = child(booksDbRef, bookId);
+
       return remove(bookDbRef);
     },
     findById: (bookId: string) => userBooks[bookId],

@@ -17,6 +17,7 @@ import BookDetailsPage from './pages/BookDetailsPage';
 import ListPage from './pages/ListPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { ProfileRouter } from './pages/profile/ProfileRouter';
+import { LandingPage } from './pages/LandingPage';
 
 const queryClient = new QueryClient();
 
@@ -45,8 +46,10 @@ const App: React.FC = () => {
             <Route path="/books/:id" exact>
               <BookDetailsPage />
             </Route>
+            <Route path="/" exact>
+              <LandingPage />
+            </Route>
             <ProfileRouter />
-            <Route path="/" exact />
             <Route>
               <NotFoundPage />
             </Route>

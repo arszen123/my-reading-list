@@ -5,6 +5,7 @@ import { AuthModal } from '../auth/AuthModal';
 
 export const LoginButton: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       <Button onClick={onOpen} colorScheme="teal">

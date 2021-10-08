@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
-import { Image } from '@chakra-ui/image';
 import {
-  Box, AspectRatio, Link, Stack, Center, SimpleGrid,
+  Stack, SimpleGrid,
 } from '@chakra-ui/layout';
 import { Select } from '@chakra-ui/react';
 import { useUser } from '../../hooks/auth';
 import { useBook } from '../../hooks/books';
 import {
-  Book,
   BookState,
   BOOK_STATES,
-  UserBooksService,
   useUserBooksService,
 } from '../../hooks/user-books';
-import { getTitle } from '../../shared/book';
-import Rating from '../../components/Rating';
-import Actions from '../../components/Actions';
 import Card from '../../components/Card';
+import CardSkeleton from '../../components/CardSkeleton';
 
 export const SavedBooks: React.FC = () => {
   const [
@@ -38,14 +33,19 @@ export const SavedBooks: React.FC = () => {
 
   return (
     <>
-      <Box>
-        <Stack p="2" flex="1" justifyContent="center" direction="row">
-          <StateFilter onChange={setFilterState} />
-        </Stack>
-        <SimpleGrid columns={[1, null, 2]} spacing={10}>
-          {list}
-        </SimpleGrid>
-      </Box>
+      <Stack
+        p="2"
+        flex="1"
+        justifyContent="center"
+        direction="row"
+        w="fit-content"
+        margin="auto"
+      >
+        <StateFilter onChange={setFilterState} />
+      </Stack>
+      <SimpleGrid columns={[1, null, 2]} spacing={10}>
+        {list}
+      </SimpleGrid>
     </>
   );
 };
@@ -61,9 +61,7 @@ const SavedBookRow: React.FC<SavedBookRowProps> = ({
 
   if (response.isLoading || response.error) {
     return (
-      <Box>
-        Loading...
-      </Box>
+      <CardSkeleton />
     );
   }
 
@@ -81,7 +79,7 @@ const StateFilter: React.FC<StateFilterProps> = ({ onChange }) => {
 
   return (
     <Select
-      w="sm"
+      w="200px"
       placeholder="All"
       onChange={(e) => onChange(e.target.value as BookState || undefined)}
     >

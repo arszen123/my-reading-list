@@ -19,6 +19,7 @@ const Searchbox: React.FC<Props> = ({ onSubmit }) => {
       handleSubmit();
     }
   }
+
   return (
     <Box>
       <InputGroup>
@@ -27,7 +28,7 @@ const Searchbox: React.FC<Props> = ({ onSubmit }) => {
           onChange={(e) => setText(e.target.value)}
           value={text}
           pr="8.25rem"
-          width="sm"
+          width="100%"
           placeholder="Search"
         />
         <InputRightElement w="8.0rem">

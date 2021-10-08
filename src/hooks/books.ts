@@ -23,6 +23,7 @@ export function useBooks(
     ).then((res) => res.json())
       .then((res) => res.items),
   );
+
   return {
     data,
     error,
@@ -41,6 +42,7 @@ export function useBook(id: string): Response<Book> {
       `${BOOKS_BASE_URL}/books/v1/volumes/${id}`,
     ).then((res) => res.json()),
   );
+
   return {
     data,
     error,

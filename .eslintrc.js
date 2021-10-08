@@ -53,5 +53,6 @@ module.exports = {
       },
     ],
     'max-len': ['error', { code: 80 }],
+    'newline-before-return': 'error',
   },
 };

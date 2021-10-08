@@ -20,9 +20,6 @@ type Props = {
 
 const Actions: React.FC<Props> = ({ state, onStateChange, onRemove }) => {
   const isSaved = typeof state !== 'undefined';
-  if (state) {
-    console.log(state);
-  }
 
   const handleStateChange = (newState: string | string[]) => {
     onStateChange(newState as BookState);

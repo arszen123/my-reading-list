@@ -11,5 +11,6 @@ export const useUser = (): User | null => {
   onAuthStateChanged(auth, (u) => {
     setUser(u);
   });
+
   return user;
 };

@@ -15,6 +15,7 @@ type Props = Omit<HTMLChakraProps<'form'>, 'onSubmit'> & {
 
 export const LoginForm: React.FC<Props> = (props) => {
   const { onSubmit, ...formProps } = props;
+
   return (
     <chakra.form
       onSubmit={(e) => {

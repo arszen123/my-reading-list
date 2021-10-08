@@ -62,7 +62,8 @@ const Card: React.FC<Props> = ({ book }) => {
             </Box>
           </Link>
           <Box
-            mt="1"
+            mt="4"
+            mb="4"
             as="h4"
             lineHeight="tight"
             fontSize="sm"
