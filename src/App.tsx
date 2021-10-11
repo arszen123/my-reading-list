@@ -3,8 +3,6 @@ import { Box } from '@chakra-ui/layout';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
 } from 'react-router-dom';
 import {
   getAuth,
@@ -12,11 +10,9 @@ import {
   signInWithEmailLink,
 } from 'firebase/auth';
 import { useToast } from '@chakra-ui/toast';
-import Navbar from './components/navbar/Navbar';
-import NotFoundPage from './pages/NotFoundPage';
-import { ProfileRouter } from './modules/profile/ProfileRouter';
-import { LandingPage } from './pages/LandingPage';
-import { BooksRouter } from './modules/books/BooksRouter';
+import Navbar from './modules/navbar/components/Navbar';
+import { Router as NestedRouter } from './modules/router/components/Router';
+import { routes } from './modules/routes';
 
 const queryClient = new QueryClient();
 
@@ -38,17 +34,7 @@ const App: React.FC = () => {
           width="container.lg"
           maxW="fit-content"
         >
-          <Switch>
-            <Route path="/" exact>
-              <LandingPage />
-            </Route>
-            {/* TODO: Fix router. For some reason the last router wont work */}
-            <BooksRouter />
-            <ProfileRouter />
-            <Route>
-              <NotFoundPage />
-            </Route>
-          </Switch>
+          <NestedRouter routes={routes} />
         </Box>
       </QueryClientProvider>
     </Router>

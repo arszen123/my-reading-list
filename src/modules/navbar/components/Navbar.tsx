@@ -4,7 +4,7 @@ import { useHistory } from 'react-router';
 import Searchbox from './Searchbox';
 import ColorModeToggle from './ColorModeToggle';
 import { LoginButton } from './LoginButton';
-import { useUser } from '../../hooks/auth';
+import { useUser } from '../../../hooks/auth';
 import { ProfileMenu } from './ProfileMenu';
 
 const Navbar: React.FC = () => {

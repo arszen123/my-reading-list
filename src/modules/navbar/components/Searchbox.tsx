@@ -3,7 +3,7 @@ import { Button } from '@chakra-ui/button';
 import { Image } from '@chakra-ui/image';
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/input';
 import { Box, Stack } from '@chakra-ui/layout';
-import logo from '../../assets/poweredby_google.png';
+import logo from '../../../assets/poweredby_google.png';
 
 type Props = {
   onSubmit: (text: string) => void;

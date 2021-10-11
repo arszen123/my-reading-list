@@ -6,32 +6,17 @@ import {
   MenuItem,
   MenuGroup,
   MenuDivider,
-  useToast,
   useDisclosure,
 } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/button';
 import { getAuth, signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
-import { useUser } from '../../hooks/auth';
-import { DeleteAlertDialog } from './DeleteAlertDialog';
-import { IconExpandMore } from '../../modules/shared/components/Icons';
+import { IconExpandMore } from '../../shared/components/Icons';
+import { DeleteAlertDialog } from '../../auth/components/DeleteAlertDialog';
 
 export const ProfileMenu: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const toast = useToast({ position: 'bottom-right', duration: 9000 });
-  const user = useUser();
   const auth = getAuth();
-
-  function handleDelete() {
-    user?.delete().catch(() => {
-      // TODO reauthenticate
-      toast({
-        title: 'Failed to delete profile',
-        description: 'Reauthenticate and try again',
-        status: 'error',
-      });
-    });
-  }
 
   return (
     <>
@@ -60,7 +45,7 @@ export const ProfileMenu: React.FC = () => {
       <DeleteAlertDialog
         isOpen={isOpen}
         onClose={onClose}
-        onConfirmed={handleDelete}
+        onDelete={onClose}
       />
     </>
   );

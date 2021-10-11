@@ -6,25 +6,37 @@ import {
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
+  useToast,
 } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/button';
+import { useUser } from '../../../hooks/auth';
 
 type Props = {
   isOpen: boolean;
   onClose: () => void;
-  onConfirmed: () => void;
+  onDelete: () => void;
 };
 
 export const DeleteAlertDialog: React.FC<Props> = ({
   isOpen,
   onClose,
-  onConfirmed,
+  onDelete,
 }) => {
+  const toast = useToast({ position: 'bottom-right', duration: 9000 });
   const cancelRef = useRef<any>();
+  const user = useUser();
 
-  function handleConfirm() {
-    onConfirmed();
-    onClose();
+  function handleDelete() {
+    user?.delete()
+      .then(() => onDelete())
+      .catch(() => {
+      // TODO reauthenticate
+        toast({
+          title: 'Failed to delete profile',
+          description: 'Reauthenticate and try again',
+          status: 'error',
+        });
+      });
   }
 
   return (
@@ -47,7 +59,7 @@ export const DeleteAlertDialog: React.FC<Props> = ({
             <Button ref={cancelRef} onClick={onClose}>
               No, I changed my mind
             </Button>
-            <Button colorScheme="red" onClick={handleConfirm} ml={3}>
+            <Button colorScheme="red" onClick={handleDelete} ml={3}>
               Yes
             </Button>
           </AlertDialogFooter>

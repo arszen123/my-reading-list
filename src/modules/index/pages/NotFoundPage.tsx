@@ -1,7 +1,7 @@
 import { Text } from '@chakra-ui/layout';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { IconArrowBack } from '../modules/shared/components/Icons';
+import { IconArrowBack } from '../../shared/components/Icons';
 
 const NotFoundPage: React.FC = () => (
   <>

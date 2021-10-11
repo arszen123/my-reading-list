@@ -27,13 +27,19 @@ const BookDetailsPage: React.FC = () => {
   const bookResponse = useBook(id);
   const user = useUser();
   const bookService = useUserBooksService(user?.uid || '');
-  if (bookResponse.isLoading || bookResponse.error) {
+
+  if (
+    bookResponse.isLoading
+    || bookResponse.error
+    || (bookResponse.data as any)?.error
+  ) {
     return (
       <Box>
         Loading...
       </Box>
     );
   }
+
   const book: Book = bookResponse.data;
   const savedBook = bookService.findById(book.id);
   const title = getTitle(book);
