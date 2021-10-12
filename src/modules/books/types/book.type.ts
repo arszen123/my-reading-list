@@ -1,3 +1,7 @@
+/**
+ * The book type returned by the google books API endpoint.
+ * Could have incorrect typeing, because it's automatically generated.
+ */
 export type Book = {
   kind: string;
   id: string;
@@ -8,6 +12,7 @@ export type Book = {
   accessInfo: AccessInfo;
   searchInfo: SearchInfo;
 }
+
 export type VolumeInfo = {
   title: string;
   subtitle: string;
@@ -32,27 +37,33 @@ export type VolumeInfo = {
   infoLink: string;
   canonicalVolumeLink: string;
 }
+
 export type IndustryIdentifiersEntity = {
   type: string;
   identifier: string;
 }
+
 export type ReadingModes = {
   text: boolean;
   image: boolean;
 }
+
 export type PanelizationSummary = {
   containsEpubBubbles: boolean;
   containsImageBubbles: boolean;
 }
+
 export type ImageLinks = {
   smallThumbnail: string;
   thumbnail: string;
 }
+
 export type SaleInfo = {
   country: string;
   saleability: string;
   isEbook: boolean;
 }
+
 export type AccessInfo = {
   country: string;
   viewability: string;
@@ -65,9 +76,11 @@ export type AccessInfo = {
   accessViewStatus: string;
   quoteSharingAllowed: boolean;
 }
+
 export type EpubOrPdf = {
   isAvailable: boolean;
 }
+
 export type SearchInfo = {
   textSnippet: string;
 }

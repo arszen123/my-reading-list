@@ -1,10 +1,10 @@
 import React from 'react';
 import { Box, Stack } from '@chakra-ui/layout';
 import { useHistory } from 'react-router';
-import Searchbox from './Searchbox';
+import Searchbox from '../../shared/components/Searchbox';
 import ColorModeToggle from './ColorModeToggle';
 import { LoginButton } from './LoginButton';
-import { useUser } from '../../../hooks/auth';
+import { useUser } from '../../auth/hooks/auth';
 import { ProfileMenu } from './ProfileMenu';
 
 const Navbar: React.FC = () => {
@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
   const user = useUser();
 
   function handleSubmit(text: string) {
-    history.push(`/search/${text}`);
+    history.push(`/books/search/${text}`);
   }
 
   return (

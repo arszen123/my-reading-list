@@ -1,6 +1,6 @@
-import { Book } from '../types';
+import { Book } from '../types/book.type';
 
-type DetailRow = {
+export type DetailRow = {
   title: string,
   value: string | number,
 }

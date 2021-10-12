@@ -4,9 +4,9 @@ import {
 } from '@chakra-ui/layout';
 import React from 'react';
 import { useHistory, useParams } from 'react-router';
-import Card from '../../shared/components/Card';
-import { useBooks } from '../../../hooks/books';
-import { Book } from '../../../types';
+import BookCard from '../components/BookCard';
+import { useBooks } from '../hooks/books';
+import { Book } from '../types/book.type';
 
 type PathParams = {
   query: string,
@@ -24,7 +24,7 @@ const ListPage: React.FC = () => {
     if (newPage < 1) {
       newPage = 1;
     }
-    history.push(`/search/${query}/${newPage}`);
+    history.push(`/books/search/${query}/${newPage}`);
   }
 
   if (books.isLoading || books.error) {
@@ -34,7 +34,7 @@ const ListPage: React.FC = () => {
       </SimpleGrid>
     );
   }
-  const list = books.data.map((book: Book) => <Card book={book} />);
+  const list = books.data.map((book: Book) => <BookCard book={book} />);
 
   return (
     <>

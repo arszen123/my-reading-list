@@ -4,19 +4,19 @@ import {
 } from '@chakra-ui/layout';
 import React from 'react';
 import { useParams } from 'react-router';
-import Actions from '../../shared/components/Actions';
+import Actions from '../components/Actions';
 import Rating from '../../shared/components/Rating';
 import SimpleDataTable from '../../shared/components/SimpleDataTable';
-import { useBook } from '../../../hooks/books';
+import { useBook } from '../hooks/books';
 import {
   getTitle,
   getDetails,
   getSearchDescription,
-} from '../../../shared/book';
-import { Book } from '../../../types';
+} from '../services/book.service';
+import { Book } from '../types/book.type';
 import noBookCoverImage from '../../../assets/no_book_cover.jpg';
-import { useUserBooksService } from '../../../hooks/user-books';
-import { useUser } from '../../../hooks/auth';
+import { useUserBookService } from '../../profile/hooks/user-books';
+import { useUser } from '../../auth/hooks/auth';
 
 type PathParams = {
   id: string;
@@ -26,7 +26,7 @@ const BookDetailsPage: React.FC = () => {
   const { id } = useParams<PathParams>();
   const bookResponse = useBook(id);
   const user = useUser();
-  const bookService = useUserBooksService(user?.uid || '');
+  const bookService = useUserBookService(user?.uid || '');
 
   if (
     bookResponse.isLoading

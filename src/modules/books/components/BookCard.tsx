@@ -6,21 +6,21 @@ import {
   Stack,
 } from '@chakra-ui/layout';
 import { Link } from 'react-router-dom';
-import Rating from './Rating';
+import Rating from '../../shared/components/Rating';
 import Actions from './Actions';
-import { Book } from '../../../types';
-import { getTitle, getSearchDescription } from '../../../shared/book';
+import { Book } from '../types/book.type';
+import { getTitle, getSearchDescription } from '../services/book.service';
 import noBookCoverImage from '../../../assets/no_book_cover.jpg';
-import { useUser } from '../../../hooks/auth';
-import { useUserBooksService } from '../../../hooks/user-books';
+import { useUser } from '../../auth/hooks/auth';
+import { useUserBookService } from '../../profile/hooks/user-books';
 
 type Props = {
   book: Book;
 };
 
-const Card: React.FC<Props> = ({ book }) => {
+const BookCard: React.FC<Props> = ({ book }) => {
   const user = useUser();
-  const bookService = useUserBooksService(user?.uid || '');
+  const bookService = useUserBookService(user?.uid || '');
   const savedBook = bookService.findById(book.id);
   const searchInfo = getSearchDescription(book);
   const title = getTitle(book);
@@ -93,4 +93,4 @@ const Card: React.FC<Props> = ({ book }) => {
   );
 };
 
-export default Card;
+export default BookCard;

@@ -6,7 +6,7 @@ import {
 } from '@chakra-ui/layout';
 import { Skeleton, SkeletonText } from '@chakra-ui/react';
 
-const CardSkeleton: React.FC = () => (
+const BookCardSkeleton: React.FC = () => (
   <Box
     maxW="md"
     borderWidth="1px"
@@ -40,4 +40,4 @@ const CardSkeleton: React.FC = () => (
   </Box>
 );
 
-export default CardSkeleton;
+export default BookCardSkeleton;

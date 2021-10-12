@@ -1,6 +1,6 @@
 import React from 'react';
 import { Select } from '@chakra-ui/select';
-import { BookState, BOOK_STATES } from '../../../../hooks/user-books';
+import { BookState, BOOK_STATES } from '../../types/book.type';
 
 type StateFilterProps = {
   onChange: (state: BookState | undefined) => void;

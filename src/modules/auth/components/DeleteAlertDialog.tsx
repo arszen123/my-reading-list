@@ -9,7 +9,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/button';
-import { useUser } from '../../../hooks/auth';
+import { useUser } from '../hooks/auth';
 
 type Props = {
   isOpen: boolean;

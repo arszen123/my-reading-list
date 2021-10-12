@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import {
   Stack, SimpleGrid,
 } from '@chakra-ui/layout';
-import { useUser } from '../../../hooks/auth';
+import { useUser } from '../../auth/hooks/auth';
 import {
-  BookState,
-  useUserBooksService,
-} from '../../../hooks/user-books';
-import { SavedBookCard } from '../components/SavedBookCard';
+  useUserBookService,
+} from '../hooks/user-books';
+import { AsyncBookCard } from '../../books/components/AsyncBookCard';
 import { StateFilter } from '../components/filters/StateFilter';
+import { BookState } from '../types/book.type';
 
 export const SavedBooks: React.FC = () => {
   const [
@@ -16,13 +16,13 @@ export const SavedBooks: React.FC = () => {
     setFilterState,
   ] = useState<BookState | undefined>(undefined);
   const user = useUser();
-  const booksService = useUserBooksService(user?.uid || '');
+  const bookService = useUserBookService(user?.uid || '');
 
-  const list = Object.entries(booksService.books)
+  const list = Object.entries(bookService.books)
     .filter(([, book]) => !filterState || book.state === filterState)
     .map(
       ([bookId]) => (
-        <SavedBookCard
+        <AsyncBookCard
           bookId={bookId}
         />
       ),

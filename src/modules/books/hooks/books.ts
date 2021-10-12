@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { Book } from '../types';
+import { Book } from '../types/book.type';
 
 const BOOKS_BASE_URL = 'https://www.googleapis.com';
 

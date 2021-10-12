@@ -1,6 +1,6 @@
-import { booksRoutes } from './books/BooksRouter';
-import { indexRoutes } from './index/IndexRouter';
-import { profileRoutes } from './profile/ProfileRouter';
+import { booksRoutes } from './books/books.routes';
+import { indexRoutes } from './index/index.routes';
+import { profileRoutes } from './profile/profile.routes';
 
 export const routes = [
   ...booksRoutes,
