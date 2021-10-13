@@ -10,7 +10,7 @@ import {
   MenuOptionGroup,
 } from '@chakra-ui/menu';
 import { IconExpandMore } from '../../shared/components/Icons';
-import { BookState } from '../../profile/types/book.type';
+import { BookState } from '../../profile';
 
 type Props = {
   state?: BookState;

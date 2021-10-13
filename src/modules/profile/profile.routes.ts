@@ -1,4 +1,4 @@
-import { Routes } from '../router/types/route.type';
+import { Routes } from '../router';
 import { SavedBooks } from './pages/SavedBooks';
 
 export const profileRoutes: Routes = [

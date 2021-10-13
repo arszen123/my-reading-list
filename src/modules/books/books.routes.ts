@@ -1,4 +1,4 @@
-import { Routes } from '../router/types/route.type';
+import { Routes } from '../router';
 import BookDetailsPage from './pages/BookDetailsPage';
 import ListPage from './pages/ListPage';
 

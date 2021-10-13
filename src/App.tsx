@@ -10,8 +10,8 @@ import {
   signInWithEmailLink,
 } from 'firebase/auth';
 import { useToast } from '@chakra-ui/toast';
-import Navbar from './modules/navbar/components/Navbar';
-import { Router as NestedRouter } from './modules/router/components/Router';
+import { Navbar } from './modules/navbar';
+import { Router as NestedRouter } from './modules/router';
 import { routes } from './modules/routes';
 
 const queryClient = new QueryClient();

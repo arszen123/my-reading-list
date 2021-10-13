@@ -1,4 +1,4 @@
-import { Routes } from '../router/types/route.type';
+import { Routes } from '../router';
 import { LandingPage } from './pages/LandingPage';
 import NotFoundPage from './pages/NotFoundPage';
 

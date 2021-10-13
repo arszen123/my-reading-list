@@ -12,7 +12,7 @@ import { Button } from '@chakra-ui/button';
 import { getAuth, signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 import { IconExpandMore } from '../../shared/components/Icons';
-import { DeleteAlertDialog } from '../../auth/components/DeleteAlertDialog';
+import { DeleteAlertDialog } from '../../auth';
 
 export const ProfileMenu: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
