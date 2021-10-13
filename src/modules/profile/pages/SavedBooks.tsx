@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import {
   Stack, SimpleGrid,
 } from '@chakra-ui/layout';
-import { useUser } from '../../auth/hooks/auth';
+import { useUser } from '../../auth';
 import {
   useUserBookService,
 } from '../hooks/user-books';
-import { AsyncBookCard } from '../../books/components/AsyncBookCard';
+import { AsyncBookCard } from '../../books';
 import { StateFilter } from '../components/filters/StateFilter';
 import { BookState } from '../types/book.type';
 

@@ -15,8 +15,8 @@ import {
 } from '../services/book.service';
 import { Book } from '../types/book.type';
 import noBookCoverImage from '../../../assets/no_book_cover.jpg';
-import { useUserBookService } from '../../profile/hooks/user-books';
-import { useUser } from '../../auth/hooks/auth';
+import { useUserBookService } from '../../profile';
+import { useUser } from '../../auth';
 
 type PathParams = {
   id: string;

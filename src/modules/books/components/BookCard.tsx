@@ -11,8 +11,8 @@ import Actions from './Actions';
 import { Book } from '../types/book.type';
 import { getTitle, getSearchDescription } from '../services/book.service';
 import noBookCoverImage from '../../../assets/no_book_cover.jpg';
-import { useUser } from '../../auth/hooks/auth';
-import { useUserBookService } from '../../profile/hooks/user-books';
+import { useUser } from '../../auth';
+import { useUserBookService } from '../../profile';
 
 type Props = {
   book: Book;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@chakra-ui/button';
 import { useDisclosure } from '@chakra-ui/hooks';
-import { AuthModal } from '../../auth/components/AuthModal';
+import { AuthModal } from '../../auth';
 
 export const LoginButton: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

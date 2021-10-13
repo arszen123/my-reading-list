@@ -4,10 +4,10 @@ import { useHistory } from 'react-router';
 import Searchbox from '../../shared/components/Searchbox';
 import ColorModeToggle from './ColorModeToggle';
 import { LoginButton } from './LoginButton';
-import { useUser } from '../../auth/hooks/auth';
+import { useUser } from '../../auth';
 import { ProfileMenu } from './ProfileMenu';
 
-const Navbar: React.FC = () => {
+export const Navbar: React.FC = () => {
   const history = useHistory();
   const user = useUser();
 
@@ -37,5 +37,3 @@ const Navbar: React.FC = () => {
     </Box>
   );
 };
-
-export default Navbar;
