@@ -5,7 +5,7 @@ import {
   Box,
   Stack,
 } from '@chakra-ui/layout';
-import { Link } from 'react-router-dom';
+import { Link } from '../../router';
 import Rating from '../../shared/components/Rating';
 import Actions from './Actions';
 import { Book } from '../types/book.type';
@@ -41,7 +41,7 @@ const BookCard: React.FC<Props> = ({ book }) => {
           ratio={1 / 1.6}
           m="auto"
         >
-          <Link to={`/books/${book.id}`}>
+          <Link to="book.details" params={{ id: book.id }}>
             <Image
               w="100%"
               objectFit="cover"
@@ -51,7 +51,7 @@ const BookCard: React.FC<Props> = ({ book }) => {
           </Link>
         </AspectRatio>
         <Box pl="4">
-          <Link to={`/books/${book.id}`}>
+          <Link to="book.details" params={{ id: book.id }}>
             <Box
               mt="1"
               fontWeight="semibold"

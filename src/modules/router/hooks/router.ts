@@ -5,6 +5,7 @@ import { RouteParams } from '../types/route.type';
 
 type Router = {
   goto: (name: string, params: RouteParams) => void;
+  compile: (name: string, params: RouteParams) => string;
 }
 
 export const useRouter = (): Router => {
@@ -15,5 +16,9 @@ export const useRouter = (): Router => {
     goto: (name: string, params: RouteParams = {}) => {
       history.push(router.compile(name, params));
     },
+    compile: (
+      name: string,
+      params: RouteParams = {},
+    ) => router.compile(name, params),
   };
 };
