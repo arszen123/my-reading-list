@@ -2,9 +2,8 @@ import { Button } from '@chakra-ui/button';
 import {
   Center, SimpleGrid, Stack,
 } from '@chakra-ui/layout';
-import React, { useContext } from 'react';
-import { useHistory, useParams } from 'react-router';
-import { RouterContext } from '../../router';
+import React from 'react';
+import { useParams, useRouter } from '../../router';
 import BookCard from '../components/BookCard';
 import { useBooks } from '../hooks/books';
 import { Book } from '../types/book.type';
@@ -15,8 +14,7 @@ type PathParams = {
 };
 
 const ListPage: React.FC = () => {
-  const history = useHistory();
-  const router = useContext(RouterContext);
+  const router = useRouter();
   const { query, page: pageFromPath = '1' } = useParams<PathParams>();
   const page = Math.max(parseInt(pageFromPath, 10), 1);
   const books = useBooks({ query, startIndex: (page - 1) * 10 });
@@ -26,10 +24,10 @@ const ListPage: React.FC = () => {
     if (newPage < 1) {
       newPage = 1;
     }
-    history.push(router.compile('books.search', {
+    router.goto('books.search', {
       query,
       page: newPage,
-    }));
+    });
   }
 
   if (books.isLoading || books.error) {

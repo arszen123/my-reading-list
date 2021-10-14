@@ -3,7 +3,6 @@ import {
   AspectRatio, Box, Stack, Text,
 } from '@chakra-ui/layout';
 import React from 'react';
-import { useParams } from 'react-router';
 import Actions from '../components/Actions';
 import Rating from '../../shared/components/Rating';
 import SimpleDataTable from '../../shared/components/SimpleDataTable';
@@ -17,6 +16,7 @@ import { Book } from '../types/book.type';
 import noBookCoverImage from '../../../assets/no_book_cover.jpg';
 import { useUserBookService } from '../../profile';
 import { useUser } from '../../auth';
+import { useParams } from '../../router';
 
 type PathParams = {
   id: string;

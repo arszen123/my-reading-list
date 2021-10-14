@@ -1,7 +1,7 @@
-import { Routes, ComponentRoutes, ComponentRoute } from '../types/route.type';
+import {
+  Routes, ComponentRoutes, ComponentRoute, RouteParams,
+} from '../types/route.type';
 import { flattenRoutes } from '../utils/flatten-routes';
-
-type RouteParams = Record<string, string | number>;
 
 export class RouterService {
   private readonly routes: ComponentRoutes;

@@ -33,3 +33,5 @@ export type Route = ComponentRoute | NestedRoute;
 export type Routes = Route[];
 
 export type ComponentRoutes = ComponentRoute[];
+
+export type RouteParams = Record<string, string | number>;
