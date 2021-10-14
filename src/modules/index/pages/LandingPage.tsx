@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box } from '@chakra-ui/layout';
 import { useHistory } from 'react-router';
 import Searchbox from '../../shared/components/Searchbox';
+import { RouterContext } from '../../router';
 
 export const LandingPage: React.FC = () => {
   const history = useHistory();
+  const router = useContext(RouterContext);
 
   const handleSearch = (text: string) => {
-    history.push(`/books/search/${text}`);
+    history.push(router.compile('books.search', {
+      query: text,
+    }));
   };
 
   return (

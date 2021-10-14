@@ -2,17 +2,17 @@ import React from 'react';
 import { Box } from '@chakra-ui/layout';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import {
-  BrowserRouter as Router,
-} from 'react-router-dom';
-import {
   getAuth,
   isSignInWithEmailLink,
   signInWithEmailLink,
 } from 'firebase/auth';
 import { useToast } from '@chakra-ui/toast';
 import { Navbar } from './modules/navbar';
-import { Router as NestedRouter } from './modules/router';
-import { routes } from './modules/routes';
+import {
+  RouterOutlet,
+  Router,
+} from './modules/router';
+import { router } from './modules/routes';
 
 const queryClient = new QueryClient();
 
@@ -25,7 +25,7 @@ const App: React.FC = () => {
   }));
 
   return (
-    <Router>
+    <Router router={router}>
       <QueryClientProvider client={queryClient}>
         <Navbar />
         <Box
@@ -34,7 +34,7 @@ const App: React.FC = () => {
           width="container.lg"
           maxW="fit-content"
         >
-          <NestedRouter routes={routes} />
+          <RouterOutlet />
         </Box>
       </QueryClientProvider>
     </Router>

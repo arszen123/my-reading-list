@@ -1,30 +1,19 @@
 import React from 'react';
-import { Route as ReactRoute, Switch } from 'react-router';
-import { flattenRoutes } from '../services/route.service';
-import { Routes } from '../types/route.type';
+import { BrowserRouter as ReactRouter } from 'react-router-dom';
+import { RouterContext } from '../context/route.context';
+import { RouterService } from '../services/router.service';
 
-type RouterPros = {
-  routes: Routes;
-};
+type Props = {
+  router: RouterService;
+}
 
-export const Router: React.FC<RouterPros> = ({ routes }) => {
-  const routesList = flattenRoutes(routes)
-    .map(
-      (route) => (
-        <ReactRoute
-          key={route.path}
-          path={route.path}
-          component={route.component}
-          exact={route.exact}
-        />
-      ),
-    );
-
-  return (
-    <>
-      <Switch>
-        {routesList}
-      </Switch>
-    </>
-  );
-};
+export const Router: React.FC<Props> = ({
+  children,
+  router,
+}) => (
+  <ReactRouter>
+    <RouterContext.Provider value={router}>
+      {children}
+    </RouterContext.Provider>
+  </ReactRouter>
+);
