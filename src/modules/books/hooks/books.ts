@@ -1,4 +1,4 @@
-import { useQuery } from 'react-query';
+import { useQuery, useQueryClient } from 'react-query';
 import { Book } from '../types/book.type';
 
 const BOOKS_BASE_URL = 'https://www.googleapis.com';
@@ -12,6 +12,7 @@ type Response<T> = {
 export function useBooks(
   { query, startIndex }: {query: string, startIndex: number},
 ): Response<Book[]> {
+  const queryClient = useQueryClient();
   const {
     data,
     error,
@@ -22,10 +23,16 @@ export function useBooks(
       `${BOOKS_BASE_URL}/books/v1/volumes?q=${query}&startIndex=${startIndex}`,
     ).then((res) => res.json())
       .then((res) => res.items),
+    { staleTime: Infinity },
   );
 
+  const books = Array.isArray(data) ? data : [];
+  books.forEach((book: Book) => {
+    queryClient.setQueryData(`book.${book.id}`, book);
+  });
+
   return {
-    data,
+    data: books,
     error,
     isLoading,
   };
@@ -41,6 +48,7 @@ export function useBook(id: string): Response<Book> {
     () => fetch(
       `${BOOKS_BASE_URL}/books/v1/volumes/${id}`,
     ).then((res) => res.json()),
+    { staleTime: Infinity },
   );
 
   return {
