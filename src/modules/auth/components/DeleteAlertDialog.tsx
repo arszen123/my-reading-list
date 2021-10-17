@@ -24,7 +24,7 @@ export const DeleteAlertDialog: React.FC<Props> = ({
 }) => {
   const toast = useToast({ position: 'bottom-right', duration: 9000 });
   const cancelRef = useRef<any>();
-  const user = useUser();
+  const { user } = useUser();
 
   function handleDelete() {
     user?.delete()

@@ -1,18 +1,20 @@
 import React from 'react';
 import { Box, Stack } from '@chakra-ui/layout';
-import { useHistory } from 'react-router';
 import Searchbox from '../../shared/components/Searchbox';
 import ColorModeToggle from './ColorModeToggle';
 import { LoginButton } from './LoginButton';
 import { useUser } from '../../auth';
 import { ProfileMenu } from './ProfileMenu';
+import { useRouter } from '../../router';
 
 export const Navbar: React.FC = () => {
-  const history = useHistory();
-  const user = useUser();
+  const router = useRouter();
+  const { user } = useUser();
 
   function handleSubmit(text: string) {
-    history.push(`/books/search/${text}`);
+    router.goto('books.search', {
+      query: text,
+    });
   }
 
   return (

@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/button';
 import { getAuth, signOut } from 'firebase/auth';
-import { Link } from 'react-router-dom';
+import { Link } from '../../router';
 import { IconExpandMore } from '../../shared/components/Icons';
 import { DeleteAlertDialog } from '../../auth';
 
@@ -29,7 +29,7 @@ export const ProfileMenu: React.FC = () => {
           Profile
         </MenuButton>
         <MenuList>
-          <Link to="/profile/saved-books"><MenuItem>My List</MenuItem></Link>
+          <Link to="profile.saved-books"><MenuItem>My List</MenuItem></Link>
           <MenuItem onClick={() => signOut(auth)} color="red">Logout</MenuItem>
           <MenuDivider />
           <MenuGroup title="Danger zone">
