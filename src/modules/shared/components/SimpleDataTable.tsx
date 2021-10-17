@@ -10,8 +10,9 @@ type Props = {
   }[],
 };
 const SimpleDataTable: React.FC<Props> = ({ rows }) => {
-  const rowLists = rows.map(({ title, value }) => (
-    <Tr>
+  const rowLists = rows.map(({ title, value }, idx) => (
+    // eslint-disable-next-line react/no-array-index-key
+    <Tr key={idx}>
       <Td fontWeight="semibold">{title}</Td>
       <Td>{value}</Td>
     </Tr>

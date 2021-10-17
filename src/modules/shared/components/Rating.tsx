@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { Box } from '@chakra-ui/layout';
 import { IconStar, IconStarEmpty, IconStarHalf } from './Icons';
@@ -13,13 +14,13 @@ const Rating: React.FC<Props> = ({ rating = 0, numOfRating = 0 }) => {
   const list = new Array(5).fill(0).map((_, idx) => {
     const color = 'teal.500';
     if (idx < rating && rating < idx + 1) {
-      return <IconStarHalf color={color} />;
+      return <IconStarHalf key={idx} color={color} />;
     }
     if (idx >= rating) {
-      return <IconStarEmpty color={color} />;
+      return <IconStarEmpty key={idx} color={color} />;
     }
 
-    return <IconStar color={color} />;
+    return <IconStar key={idx} color={color} />;
   });
 
   return (

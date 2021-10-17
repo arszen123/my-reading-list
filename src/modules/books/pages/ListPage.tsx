@@ -4,6 +4,7 @@ import {
 } from '@chakra-ui/layout';
 import React from 'react';
 import { useParams, useRouter } from '../../router';
+import { Loading } from '../../shared/components/Loading';
 import BookCard from '../components/BookCard';
 import { useBooks } from '../hooks/books';
 import { Book } from '../types/book.type';
@@ -31,13 +32,11 @@ const ListPage: React.FC = () => {
   }
 
   if (books.isLoading || books.error) {
-    return (
-      <SimpleGrid>
-        Loading...
-      </SimpleGrid>
-    );
+    return <Loading />;
   }
-  const list = books.data.map((book: Book) => <BookCard book={book} />);
+  const list = books.data.map(
+    (book: Book) => <BookCard key={book.id} book={book} />,
+  );
 
   return (
     <>

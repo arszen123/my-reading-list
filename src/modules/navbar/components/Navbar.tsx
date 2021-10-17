@@ -9,7 +9,7 @@ import { useRouter } from '../../router';
 
 export const Navbar: React.FC = () => {
   const router = useRouter();
-  const user = useUser();
+  const { user } = useUser();
 
   function handleSubmit(text: string) {
     router.goto('books.search', {

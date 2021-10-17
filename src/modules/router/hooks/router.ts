@@ -4,8 +4,8 @@ import { RouterContext } from '../context/route.context';
 import { RouteParams } from '../types/route.type';
 
 type Router = {
-  goto: (name: string, params: RouteParams) => void;
-  compile: (name: string, params: RouteParams) => string;
+  goto: (name: string, params?: RouteParams) => void;
+  compile: (name: string, params?: RouteParams) => string;
 }
 
 export const useRouter = (): Router => {

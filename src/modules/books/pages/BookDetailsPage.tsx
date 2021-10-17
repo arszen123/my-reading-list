@@ -17,6 +17,7 @@ import noBookCoverImage from '../../../assets/no_book_cover.jpg';
 import { useUserBookService } from '../../profile';
 import { useUser } from '../../auth';
 import { useParams } from '../../router';
+import { Loading } from '../../shared/components/Loading';
 
 type PathParams = {
   id: string;
@@ -25,7 +26,7 @@ type PathParams = {
 const BookDetailsPage: React.FC = () => {
   const { id } = useParams<PathParams>();
   const bookResponse = useBook(id);
-  const user = useUser();
+  const { user } = useUser();
   const bookService = useUserBookService(user?.uid || '');
 
   if (
@@ -33,11 +34,7 @@ const BookDetailsPage: React.FC = () => {
     || bookResponse.error
     || (bookResponse.data as any)?.error
   ) {
-    return (
-      <Box>
-        Loading...
-      </Box>
-    );
+    return <Loading />;
   }
 
   const book: Book = bookResponse.data;

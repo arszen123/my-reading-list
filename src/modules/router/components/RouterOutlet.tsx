@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import {
-  Route as ReactRouterRoute,
   Switch as ReactRouterSwitch,
-} from 'react-router';
+  Route as ReactRouterRoute,
+} from 'react-router-dom';
 import { RouterContext } from '../context/route.context';
 
 export const RouterOutlet: React.FC = () => {
@@ -11,10 +11,9 @@ export const RouterOutlet: React.FC = () => {
     .map(
       (route) => (
         <ReactRouterRoute
-          key={route.path}
           path={route.path}
-          component={route.component}
           exact={route.exact}
+          component={route.component}
         />
       ),
     );

@@ -19,7 +19,7 @@ type Props = {
 };
 
 const BookCard: React.FC<Props> = ({ book }) => {
-  const user = useUser();
+  const { user } = useUser();
   const bookService = useUserBookService(user?.uid || '');
   const savedBook = bookService.findById(book.id);
   const searchInfo = getSearchDescription(book);
