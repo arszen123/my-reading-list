@@ -2,6 +2,11 @@
 
 Reading list tracking application.
 
+## Deploy
+[![Deploy to Firebase Hosting on merge](https://github.com/arszen123/my-reading-list/actions/workflows/firebase-hosting-merge.yml/badge.svg)](https://github.com/arszen123/my-reading-list/actions/workflows/firebase-hosting-merge.yml)
+
+[Live application](https://my-reading-list-25ce5.web.app)
+
 ## Features
 
 - Authentication
