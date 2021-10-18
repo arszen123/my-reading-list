@@ -19,7 +19,9 @@ jobs:
         with:
           args: apps:sdkconfig web --json > src/firebase.config.json
         env:
-          GCP_SA_KEY: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MY_READING_LIST_25CE5 }}'
+          GCP_SA_KEY: ${{ secrets.GCP_SA_BASE64 }}
+      - name: CI
+        run: npm run ci
       - name: Build
         run: npm run build
       - name: Deploy
@@ -27,4 +29,4 @@ jobs:
         with:
           args: deploy
         env:
-          GCP_SA_KEY: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MY_READING_LIST_25CE5 }}'
+          GCP_SA_KEY: ${{ secrets.GCP_SA_BASE64 }}

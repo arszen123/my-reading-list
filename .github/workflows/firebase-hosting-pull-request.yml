@@ -18,6 +18,8 @@ jobs:
           args: apps:sdkconfig web --json > src/firebase.config.json
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_BASE64 }}
+      - name: CI
+        run: npm run ci
       - name: Build
         run: npm run build
       - name: Deploy to Firebase
